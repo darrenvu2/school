@@ -3,8 +3,8 @@ from socket import *
 msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
 
-mailserver = '127.0.0.1'
-port = 1025
+mailserver = 'smtp.sjsu.edu'
+port = 25
 
 # Create socket
 clientSocket = socket(AF_INET, SOCK_STREAM)
@@ -18,11 +18,11 @@ clientSocket.send("HELO Darren\r\n".encode())
 print(clientSocket.recv(1024).decode())
 
 # MAIL FROM
-clientSocket.send("MAIL FROM:darren.vu9@gmail.com\r\n".encode())
+clientSocket.send("MAIL FROM:<darren.vu@sjsu.edu>\r\n".encode())
 print(clientSocket.recv(1024).decode())
 
 # RCPT TO
-clientSocket.send("RCPT TO:darren.vu2@gmail.com\r\n".encode())
+clientSocket.send("RCPT TO:<darren.vu@sjsu.edu>\r\n".encode())
 print(clientSocket.recv(1024).decode())
 
 # DATA
